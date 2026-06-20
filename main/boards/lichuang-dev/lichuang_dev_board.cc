@@ -216,6 +216,7 @@ private:
     void InitializeCamera() {
         // Open camera power
         pca9557_->SetOutputState(2, 0);
+        vTaskDelay(pdMS_TO_TICKS(200)); // 等待摄像头电源稳定
 
         camera_config_t config = {};
         config.ledc_channel = LEDC_CHANNEL_2;
